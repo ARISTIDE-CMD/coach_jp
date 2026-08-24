@@ -658,6 +658,16 @@
             font-size: 0.95rem;
         }
 
+        .steps-illustration {
+            display: block;
+            width: 100%;
+            max-width: 780px;
+            margin: 0 auto 2.5rem;
+            border-radius: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
