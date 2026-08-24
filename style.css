@@ -364,8 +364,8 @@
         }
 
         .service-icon {
-            width: 64px;
-            height: 64px;
+            width: 76px;
+            height: 76px;
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
@@ -376,8 +376,8 @@
         }
 
         .service-icon .icon {
-            width: 30px;
-            height: 30px;
+            width: 34px;
+            height: 34px;
         }
 
         .service-card h3 {
@@ -485,8 +485,8 @@
         }
 
         .testimonial-avatar {
-            width: 60px;
-            height: 60px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -504,9 +504,10 @@
         }
 
         .testimonial-text {
-            font-size: 0.9rem;
+            font-size: 1.05rem;
+            font-weight: 600;
             color: var(--text-dark);
-            line-height: 1.7;
+            line-height: 1.5;
             margin-bottom: 1rem;
             font-style: italic;
         }
@@ -568,8 +569,8 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 2rem;
+            grid-template-columns: 320px 1fr;
+            gap: 2.5rem;
             align-items: center;
             max-width: 1000px;
             margin: 0 auto;
