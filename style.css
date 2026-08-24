@@ -13,11 +13,10 @@
             --text-dark: #1a1a1a;
             --text-gray: #4a4a4a;
             --page-bg: #f7fbff;
-            --card-border: #e6edf5;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Public Sans', sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
@@ -49,7 +48,6 @@
             opacity: 0.32;
             pointer-events: none;
             z-index: 5;
-            filter: drop-shadow(0 8px 16px rgba(15, 23, 42, 0.08));
         }
 
         .france-corner svg {
@@ -65,7 +63,6 @@
             align-items: center;
             padding: 1rem 8%;
             background: var(--white);
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -96,11 +93,9 @@
             gap: 5px;
             width: 40px;
             height: 40px;
-            border: 1px solid var(--card-border);
             border-radius: 10px;
             background: var(--white);
             cursor: pointer;
-            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
         }
 
         .menu-bar {
@@ -153,7 +148,6 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
@@ -189,7 +183,6 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
             transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
             z-index: 1099;
             text-decoration: none;
@@ -233,7 +226,6 @@
         .nav-cta:hover {
             background: #2a3b7f;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(26, 43, 95, 0.3);
         }
 
         /* Hero Section */
@@ -308,13 +300,11 @@
             display: inline-block;
             text-decoration: none;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
-            box-shadow: 0 12px 24px rgba(255, 107, 44, 0.25);
         }
 
         .cta-button:hover {
             background: #e55a1f;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 44, 0.4);
         }
 
         .hero-image {
@@ -364,16 +354,12 @@
             background: var(--white);
             padding: 2rem 1.5rem;
             border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
             text-align: center;
             transition: all 0.3s;
-            border: 1px solid var(--card-border);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-            border-color: var(--orange);
         }
 
         .service-icon {
@@ -411,7 +397,6 @@
             background: #eef6ff;
             padding: 1.5rem 2rem;
             border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -481,8 +466,6 @@
             background: var(--white);
             padding: 2rem;
             border-radius: 18px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
             transition: all 0.3s;
             min-width: 320px;
             flex: 0 0 320px;
@@ -491,7 +474,6 @@
 
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         }
 
         .testimonial-header {
@@ -506,7 +488,6 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #eef2f7;
         }
 
         .testimonial-info h4 {
@@ -539,7 +520,6 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
             cursor: pointer;
             transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
             flex: 0 0 auto;
@@ -595,13 +575,11 @@
             background: var(--white);
             padding: 2rem;
             border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
         }
 
         .about-image {
             width: 100%;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
         }
 
         .about-text h2 {
@@ -664,7 +642,6 @@
             font-size: 0.85rem;
             padding: 0.4rem 0.9rem;
             border-radius: 999px;
-            box-shadow: 0 10px 20px rgba(255, 107, 44, 0.18);
         }
 
         .steps-kicker::before {
@@ -690,20 +667,17 @@
 
         .step-card {
             background: var(--white);
-            border: 1px solid var(--card-border);
             border-radius: 20px;
             padding: 1.6rem;
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
             display: flex;
             flex-direction: column;
             gap: 0.9rem;
             position: relative;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .step-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 22px 46px rgba(15, 23, 42, 0.14);
         }
 
         .step-number {
@@ -715,7 +689,6 @@
             width: fit-content;
             padding: 0.35rem 0.75rem;
             border-radius: 999px;
-            box-shadow: 0 10px 20px rgba(255, 107, 44, 0.25);
         }
 
         .step-card h3 {
@@ -772,7 +745,6 @@
             padding: 2.5rem 8% 3rem;
             text-align: center;
             color: var(--navy);
-            border-top: 1px solid var(--card-border);
         }
 
         .footer-cta .cta-button {
@@ -787,7 +759,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid var(--card-border);
         }
 
         .footer-contact p {
@@ -821,8 +792,6 @@
             text-decoration: none;
             transition: all 0.3s;
             font-size: 1.1rem;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
         }
 
         .social-links .icon {
@@ -842,7 +811,6 @@
             background: var(--white);
             color: var(--text-gray);
             font-size: 0.9rem;
-            border-top: 1px solid var(--card-border);
         }
 
         /* Animations */
@@ -935,9 +903,7 @@
                 padding: 0.85rem 0.75rem 0.7rem;
                 display: none;
                 background: var(--white);
-                border: 1px solid var(--card-border);
                 border-radius: 14px;
-                box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
                 margin-top: 0.6rem;
                 position: relative;
                 z-index: 1001;
