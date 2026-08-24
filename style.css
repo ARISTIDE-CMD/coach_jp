@@ -70,13 +70,14 @@
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--navy);
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--orange);
+        .logo img {
+            height: 48px;
+            width: auto;
+            display: block;
         }
 
         .nav-links {
