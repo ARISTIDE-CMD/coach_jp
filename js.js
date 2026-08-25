@@ -131,3 +131,96 @@
             section.classList.add('reveal');
             revealObserver.observe(section);
         });
+
+        /* Illustrations décoratives des 4 services. Elles restent derrière le contenu
+           et donnent une histoire visuelle propre à chaque prestation. */
+        const serviceIllustrations = [
+            'assets/service-formation.svg',
+            'assets/service-dossier.svg',
+            'assets/service-visa.svg',
+            'assets/service-installation.svg'
+        ];
+
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            if (!serviceIllustrations[index]) return;
+
+            card.classList.add('has-service-illustration');
+            const illustration = document.createElement('img');
+            illustration.className = 'service-illustration';
+            illustration.src = serviceIllustrations[index];
+            illustration.alt = '';
+            illustration.setAttribute('aria-hidden', 'true');
+            illustration.loading = 'lazy';
+            card.appendChild(illustration);
+        });
+
+        const serviceIllustrationStyle = document.createElement('style');
+        serviceIllustrationStyle.textContent = `
+            .service-card.has-service-illustration {
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+            }
+            .service-card.has-service-illustration::before {
+                content: '';
+                position: absolute;
+                width: 170px;
+                height: 170px;
+                right: -55px;
+                bottom: -65px;
+                border-radius: 50%;
+                background: #fff5ee;
+                z-index: -2;
+            }
+            .service-card.has-service-illustration::after {
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 55px;
+                left: 0;
+                bottom: 18px;
+                border-radius: 0 8px 8px 0;
+                background: #f26b3e;
+                opacity: .18;
+            }
+            .service-card .service-icon,
+            .service-card h3,
+            .service-card p {
+                position: relative;
+                z-index: 2;
+            }
+            .service-card .service-illustration {
+                position: absolute;
+                width: 145px;
+                height: 100px;
+                object-fit: contain;
+                right: -10px;
+                bottom: -3px;
+                opacity: .24;
+                z-index: 0;
+                pointer-events: none;
+                transform: rotate(-2deg);
+                transition: opacity .25s ease, transform .25s ease;
+            }
+            .service-card:hover .service-illustration {
+                opacity: .38;
+                transform: translateY(-4px) rotate(-2deg) scale(1.04);
+            }
+            @media (max-width: 640px) {
+                .service-card .service-illustration {
+                    width: 120px;
+                    height: 82px;
+                    right: -12px;
+                    bottom: -2px;
+                    opacity: .2;
+                }
+                .service-card.has-service-illustration::before {
+                    width: 140px;
+                    height: 140px;
+                    right: -50px;
+                    bottom: -55px;
+                }
+            }
+        `;
+        document.head.appendChild(serviceIllustrationStyle);
