@@ -131,3 +131,33 @@
             section.classList.add('reveal');
             revealObserver.observe(section);
         });
+
+        /* Compteur anime pour les chiffres cles (95%, 200+, 5+) */
+        const statEls = document.querySelectorAll('.stat-item strong');
+        const statObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const raw = el.textContent.trim();
+                    const match = raw.match(/^(\d+)(.*)$/);
+                    if (match) {
+                        const target = parseInt(match[1], 10);
+                        const suffix = match[2];
+                        const duration = 1200;
+                        const start = performance.now();
+                        const step = (now) => {
+                            const progress = Math.min((now - start) / duration, 1);
+                            const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+                            el.textContent = value + suffix;
+                            if (progress < 1) requestAnimationFrame(step);
+                            else el.textContent = raw;
+                        };
+                        requestAnimationFrame(step);
+                    }
+                    observer.unobserve(el);
+                });
+            },
+            { threshold: 0.5 }
+        );
+        statEls.forEach((el) => statObserver.observe(el));
