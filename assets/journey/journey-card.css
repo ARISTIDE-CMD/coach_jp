@@ -1,0 +1,29 @@
+/* Illustrations SVG des sous-etapes : visibles sur desktop, tablette et mobile. */
+.journey-detail{position:relative;overflow:hidden;isolation:isolate;min-height:132px}
+.journey-detail::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.86) 46%,rgba(255,255,255,.38) 100%);z-index:0;pointer-events:none}
+.journey-detail::after{content:"";position:absolute;right:-10px;bottom:-18px;width:150px;height:150px;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.94;pointer-events:none;z-index:1;filter:saturate(1.15) contrast(1.05);transform:scale(1);transition:transform .25s ease,opacity .25s ease}
+.journey-detail:hover::after{opacity:1;transform:scale(1.06)}
+.journey-detail>*{position:relative;z-index:2}
+.journey-detail h3,.journey-detail p{max-width:62%}
+#jc1 .journey-detail:nth-child(1)::after{background-image:url('etudes-procedure.svg')}
+#jc1 .journey-detail:nth-child(2)::after{background-image:url('etudes-profil.svg')}
+#jc1 .journey-detail:nth-child(3)::after{background-image:url('etudes-compte-cf.svg')}
+#jc1 .journey-detail:nth-child(4)::after{background-image:url('etudes-dossier-eef.svg')}
+#jc1 .journey-detail:nth-child(5)::after{background-image:url('etudes-ecoles.svg')}
+#jc1 .journey-detail:nth-child(6)::after{background-image:url('etudes-tls.svg')}
+#jc1 .journey-detail:nth-child(7)::after{background-image:url('etudes-entretien.svg')}
+#jc2 .journey-detail:nth-child(1)::after{background-image:url('visa-situation.svg')}
+#jc2 .journey-detail:nth-child(2)::after{background-image:url('visa-exigences.svg')}
+#jc2 .journey-detail:nth-child(3)::after{background-image:url('visa-justificatifs.svg')}
+#jc2 .journey-detail:nth-child(4)::after{background-image:url('visa-coherence.svg')}
+#jc2 .journey-detail:nth-child(5)::after{background-image:url('visa-formulaire.svg')}
+#jc2 .journey-detail:nth-child(6)::after{background-image:url('visa-rdv.svg')}
+#jc2 .journey-detail:nth-child(7)::after{background-image:url('visa-final.svg')}
+#jc3 .journey-detail:nth-child(1)::after{background-image:url('arrive-depart.svg')}
+#jc3 .journey-detail:nth-child(2)::after{background-image:url('arrive.svg')}
+#jc3 .journey-detail:nth-child(3)::after{background-image:url('arrive-logement.svg')}
+#jc3 .journey-detail:nth-child(4)::after{background-image:url('arrive-admin.svg')}
+#jc3 .journey-detail:nth-child(5)::after{background-image:url('arrive-quotidien.svg')}
+#jc3 .journey-detail:nth-child(6)::after{background-image:url('arrive-campus.svg')}
+#jc3 .journey-detail:nth-child(7)::after{background-image:url('arrive-autonomie.svg')}
+@media (max-width:768px){.journey-detail{min-height:140px}.journey-detail::after{width:145px;height:145px;right:-8px;bottom:-16px;opacity:.9}.journey-detail h3,.journey-detail p{max-width:60%}}

@@ -1,3 +1,11 @@
+        /* Charge les illustrations des sous-etapes sur desktop, tablette et mobile. */
+        (() => {
+            const journeyStyle = document.createElement('link');
+            journeyStyle.rel = 'stylesheet';
+            journeyStyle.href = 'assets/journey/journey-card.css?v=3';
+            document.head.appendChild(journeyStyle);
+        })();
+
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         const navOverlay = document.querySelector('.nav-overlay');
