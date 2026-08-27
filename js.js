@@ -70,6 +70,9 @@
         toggleBackToTop();
 
         if (testimonialsRow && testimonialPrev && testimonialNext) {
+            const cards = Array.from(testimonialsRow.querySelectorAll('.testimonial-card'));
+            const dotsContainer = document.querySelector('.carousel-dots');
+
             const getStep = () => {
                 const card = testimonialsRow.querySelector('.testimonial-card');
                 if (!card) return 300;
@@ -83,6 +86,56 @@
 
             testimonialPrev.addEventListener('click', () => scrollByStep(-1));
             testimonialNext.addEventListener('click', () => scrollByStep(1));
+
+            /* Genere une puce par position de defilement reellement atteignable
+               (et non par carte, car plusieurs cartes sont visibles a la fois) */
+            let dots = [];
+            const buildDots = () => {
+                if (!dotsContainer) return;
+                const step = getStep();
+                const maxScroll = testimonialsRow.scrollWidth - testimonialsRow.clientWidth;
+                const totalSteps = maxScroll <= 5 ? 1 : Math.round(maxScroll / step) + 1;
+                dotsContainer.innerHTML = '';
+                dots = Array.from({ length: totalSteps }, (_, index) => {
+                    const dot = document.createElement('span');
+                    dot.setAttribute('role', 'tab');
+                    dot.setAttribute('aria-label', 'Aller au groupe de témoignages ' + (index + 1));
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        const target = index === totalSteps - 1 ? maxScroll : index * step;
+                        testimonialsRow.scrollTo({ left: target, behavior: 'smooth' });
+                    });
+                    dotsContainer.appendChild(dot);
+                    return dot;
+                });
+            };
+            if (cards.length) buildDots();
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(buildDots, 200);
+            });
+
+            const updateActiveDot = () => {
+                if (!dots.length) return;
+                const step = getStep();
+                const maxScroll = testimonialsRow.scrollWidth - testimonialsRow.clientWidth;
+                let activeIndex;
+                if (testimonialsRow.scrollLeft >= maxScroll - 5) {
+                    activeIndex = dots.length - 1;
+                } else {
+                    activeIndex = Math.round(testimonialsRow.scrollLeft / step);
+                }
+                activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+            };
+
+            let dotUpdateFrame;
+            testimonialsRow.addEventListener('scroll', () => {
+                cancelAnimationFrame(dotUpdateFrame);
+                dotUpdateFrame = requestAnimationFrame(updateActiveDot);
+            });
 
             let autoScroll = setInterval(() => {
                 const maxScroll = testimonialsRow.scrollWidth - testimonialsRow.clientWidth;
