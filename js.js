@@ -161,3 +161,27 @@
             { threshold: 0.5 }
         );
         statEls.forEach((el) => statObserver.observe(el));
+
+        /* Accordeon du parcours (3 etapes) */
+        const journeyTriggers = document.querySelectorAll('.journey-trigger');
+        journeyTriggers.forEach((trigger) => {
+            trigger.addEventListener('click', () => {
+                const targetId = trigger.getAttribute('data-target');
+                const targetPanel = document.getElementById(targetId);
+                const isAlreadyOpen = trigger.classList.contains('is-active');
+
+                journeyTriggers.forEach((t) => {
+                    t.classList.remove('is-active');
+                    t.setAttribute('aria-expanded', 'false');
+                });
+                document.querySelectorAll('.journey-content').forEach((panel) => {
+                    panel.classList.remove('is-open');
+                });
+
+                if (!isAlreadyOpen) {
+                    trigger.classList.add('is-active');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    if (targetPanel) targetPanel.classList.add('is-open');
+                }
+            });
+        });
